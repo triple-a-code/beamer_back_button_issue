@@ -6,7 +6,8 @@ import '../../application/navigation/locations.dart';
 /// Connectivity assistant page
 class ConnectivityAssistantPage extends StatefulWidget {
   @override
-  _ConnectivityAssistantPageState createState() => _ConnectivityAssistantPageState();
+  _ConnectivityAssistantPageState createState() =>
+      _ConnectivityAssistantPageState();
 }
 
 class _ConnectivityAssistantPageState extends State<ConnectivityAssistantPage> {
@@ -22,13 +23,25 @@ class _ConnectivityAssistantPageState extends State<ConnectivityAssistantPage> {
             ElevatedButton(
               child: Text('Dashboard'),
               onPressed: () {
-                Beamer.of(context).beamTo(DashboardLocation());
+                Beamer.of(context).beamTo(DashboardLocation(
+                  BeamState(
+                    pathBlueprintSegments: [],
+                  ),
+                ));
+                // OR
+                // Beamer.of(context).beamToNamed('/');
               },
             ),
             ElevatedButton(
               child: Text('QR Code connect'),
               onPressed: () {
-                Beamer.of(context).beamTo(QrConnectLocation());
+                Beamer.of(context).beamTo(QrConnectLocation(
+                  BeamState(
+                    pathBlueprintSegments: ['qrconnect'],
+                  ),
+                ));
+                // OR
+                // Beamer.of(context).beamToNamed('/qrconnect');
               },
             ),
           ],
