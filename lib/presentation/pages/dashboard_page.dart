@@ -22,13 +22,25 @@ class _DashboardPageState extends State<DashboardPage> {
             ElevatedButton(
               child: Text('QR Code connect'),
               onPressed: () {
-                Beamer.of(context).beamTo(QrConnectLocation());
+                Beamer.of(context).beamTo(QrConnectLocation(
+                  BeamState(
+                    pathBlueprintSegments: ['qrconnect'],
+                  ),
+                ));
+                // OR
+                // Beamer.of(context).beamToNamed('/qrconnect');
               },
             ),
             ElevatedButton(
               child: Text('Connectivity Assistant'),
               onPressed: () {
-                Beamer.of(context).beamTo(ConnectivityAssistantLocation());
+                Beamer.of(context).beamTo(ConnectivityAssistantLocation(
+                  BeamState(
+                    pathBlueprintSegments: ['connect'],
+                  ),
+                ));
+                // OR
+                // Beamer.of(context).beamToNamed('/connect');
               },
             )
           ],

@@ -22,7 +22,13 @@ class _QrConnectPageState extends State<QrConnectPage> {
             ElevatedButton(
               child: Text('Dashboard'),
               onPressed: () {
-                Beamer.of(context).beamTo(DashboardLocation());
+                Beamer.of(context).beamTo(DashboardLocation(
+                  BeamState(
+                    pathBlueprintSegments: [],
+                  ),
+                ));
+                // OR
+                // Beamer.of(context).beamToNamed('/');
               },
             )
           ],
